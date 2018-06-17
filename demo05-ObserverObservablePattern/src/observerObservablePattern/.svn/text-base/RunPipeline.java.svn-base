@@ -1,0 +1,30 @@
+/**
+ * Created on Sep 13, 2010
+ *
+ * Project: demo05-SimpleObserverObservablePattern
+ */
+package observerObservablePattern;
+
+/**
+ * @author dwatson
+ * @version 1.0
+ */
+public class RunPipeline
+{
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args)
+	{
+		Pipe  pipe = new Pipe();
+		Valve v1 = new Valve();
+		Valve v2 = new Valve();
+		
+		pipe.addObserver(v1);
+		pipe.addObserver(v2);
+		
+		pipe.setPressure(110);
+		pipe.setPressure(29);
+		pipe.setPressure(75);
+	}
+}

@@ -1,0 +1,104 @@
+/**
+ * Created on May 31, 2011
+ *
+ * Project: demo07-DateADTImplemetationExample 
+ */
+package dateADTExercise;
+
+/**
+ * DateADT.java
+ *
+ * @author dwatson
+ * @version 1.0
+ * 
+ * Class Definition: This interface represents the public contract for the
+ * implementation of Date for the DateADT Exercise 1. 
+ */
+public interface DateADT extends Comparable<DateADT>
+{
+	/**
+	 * Constructs a Date from three integer parameters representing the year,
+	 * month and day. 
+	 * Precondition: a year month and day are passed
+	 * Postcondition: a reference number is created
+	 * @param year the year as a 4 digit value
+	 * @param month the month as 1 or 2 digit value
+	 * @param day the day as 1 or 2 digit value
+	 * @throws InvalidDateException is thrown if an invalid set of date
+	 * components is passed.
+	 */
+	public void createDate(int year, int month, int day)
+			throws InvalidDateException;
+
+	/**
+	 * Returns a String representation of the date represented by the internal
+	 * reference number.
+	 * 
+	 * Precondition: A valid internal reference number exists. A reference
+	 * number may be positive (dates past January 1, 2000) or a negative number
+	 * (dates before January 1, 2000)
+	 * 
+	 * Postcondition: A String representation of the date in ISO format. In the
+	 * format yyyy-mm-dd.
+	 * 
+	 * @return the date string formated in an ISO format i.e. yyyy-mm-dd
+	 */
+	public String dateFormatISO();
+	
+	/**
+	 * Compares the current Date object to another Date object.
+	 * 
+	 * Precondition: A valid Date object to compare to the current Date object.
+	 * 
+	 * Postcondition: Returns a positive value if the current date is greater
+	 * than date being compared. Returns 0 if both dates are equal. Returns
+	 * a negative value if the current date is less than the date being
+	 * compared.
+	 * 
+	 * @param d the date being compared
+	 * @return the result of the comparison as either negative, positive or
+	 * zero.
+	 */
+	public int compareTo(DateADT d);
+	
+	/**
+	 * Advances or decrements the Date.
+	 * 
+	 * Precondition: A valid Date object exists and a valid integer value
+	 * representing the number of of days by which to change the date is passed.
+	 * 
+	 * Postcondition: The Date is advanced by the number of days (positive value
+	 * passed) or the date is decremented by the number of days (negative
+	 * value).
+	 * 
+	 * @param days the number of days to increment or decrement the date.
+	 */
+	public void changeDate(int days);
+	
+	/**
+	 * Calculates the number of days between two Dates
+	 * 
+	 * Precondition: A valid Date object of type DateADT to differentiate
+	 * between the current Date object.
+	 * 
+	 * Postcondition: An integer value representing the number of days between
+	 * the current date and the date being compared.
+	 * 
+	 * @param d a valid date object of type DateADT
+	 * @return the number of days between the dates as an integer value
+	 */
+	public int daysBetween(DateADT d);
+
+	/**
+	 * Accessor method to return the number of days from epoch date.
+	 * 
+	 * Precondition: A valid date is established as the epoch or reference
+	 * date i.e. 1900-01-01
+	 * 
+	 * Postcondition: An integer value representing the number days from the
+	 * epoch date.
+	 * 
+	 * @return the number of days from the epoch date as an integer value.
+	 */
+	public int getEpoch();
+}

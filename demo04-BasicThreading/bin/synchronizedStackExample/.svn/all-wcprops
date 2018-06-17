@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/cprg311/!svn/ver/3/demo04-BasicThreading/src/snychronizedStackExample
+END
+SyncStack.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/cprg311/!svn/ver/3/demo04-BasicThreading/src/snychronizedStackExample/SyncStack.java
+END
+TestStack.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/cprg311/!svn/ver/3/demo04-BasicThreading/src/snychronizedStackExample/TestStack.java
+END
+Consumer.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/cprg311/!svn/ver/3/demo04-BasicThreading/src/snychronizedStackExample/Consumer.java
+END
+Producer.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/cprg311/!svn/ver/3/demo04-BasicThreading/src/snychronizedStackExample/Producer.java
+END

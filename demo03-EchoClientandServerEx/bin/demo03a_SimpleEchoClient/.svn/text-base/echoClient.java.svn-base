@@ -1,0 +1,59 @@
+/**
+ * Created on Sep 8, 2010
+ *
+ * Project: demo03a_SimpleEchoClient
+ */
+package demo03a_SimpleEchoClient;
+
+import java.io.*;
+import java.net.*;
+import javax.swing.JOptionPane;
+
+/**
+ * @author dwatson
+ * @version 1.0
+ */
+public class echoClient
+{
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args)
+	{
+		try
+		{
+			//Open a connection to my server listening on port 5555
+			//instead of localhost should use local ip address
+			Socket s1 = new Socket("localhost",5555);
+			//Open a connection to cvs server itsd.ict.sait.ca on port 445
+			//Socket s1 = new Socket("10.138.50.83",445);
+			
+			String text = JOptionPane.showInputDialog("Enter text");
+			
+			//Creating an output stream to send text to the server
+			OutputStream os = s1.getOutputStream();
+			DataOutputStream dos = new DataOutputStream(os);
+			dos.writeUTF(text);
+			
+			//Create an input stream to receive echo from server
+			InputStream is = s1.getInputStream();
+			DataInputStream dis = new DataInputStream(is);
+			JOptionPane.showMessageDialog(null, dis.readUTF());
+			
+			dos.close();
+			dis.close();
+			s1.close();
+		
+		}
+		catch (UnknownHostException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

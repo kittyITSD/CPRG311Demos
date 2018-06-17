@@ -1,0 +1,33 @@
+/**
+ * Created on Sep 13, 2010
+ *
+ * Project: demo05-SimpleObserverObservablePattern
+ */
+package observerObservablePattern;
+
+import java.util.Observable;
+
+/**
+ * @author dwatson
+ * @version 1.0
+ */
+public class Pipe extends Observable
+{
+	private int 			pressure;
+
+	public Pipe()
+	{
+	}
+
+	public int getPressure()
+	{
+		return pressure;
+	}
+
+	public void setPressure(int pressure)
+	{
+		this.pressure = pressure;
+		setChanged();
+		notifyObservers();
+	}
+}

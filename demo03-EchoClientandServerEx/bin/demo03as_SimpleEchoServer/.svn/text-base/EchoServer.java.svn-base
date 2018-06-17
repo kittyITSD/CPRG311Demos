@@ -1,0 +1,68 @@
+/**
+ * EchoServer
+ */
+package demo03as_SimpleEchoServer;
+
+/**
+ * @author dwatson
+ * @version 1.0
+ * Sep 5, 2008
+ *
+ * Class Description:
+ * 
+ */
+
+import java.net.*;
+import java.io.*;
+
+public class EchoServer
+{
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args)
+	{
+		ServerSocket ss = null;
+		DataInputStream dis = null;
+		DataOutputStream dos = null;
+		Socket c1 = null;
+		
+		//Register our service on port 5555
+		try
+		{
+			ss = new ServerSocket(5555);
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		while(true)
+		{
+			try
+			{
+				System.out.println("Server is up and running!!!!!!!!!!!");
+				//Blocking statement
+				c1 = ss.accept();
+				
+				//Read input from client
+				dis = new DataInputStream(c1.getInputStream());
+				String text = dis.readUTF();
+				text = c1.getInetAddress()+" "+text;
+				System.out.println(text);
+				
+				//Echo text back to client
+				dos = new DataOutputStream(c1.getOutputStream());
+				dos.writeUTF(text);
+				
+				dis.close();
+				dos.close();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+}
